@@ -29,6 +29,69 @@
     padding: 40px 20px;
   }
 
+ @media print {
+
+  /* keep colors + design EXACT */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  /* remove spacing issues */
+  .invoice {
+    margin: 0 auto !important;
+    width: 860px !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* prevent layout breaking */
+  .invoice-header,
+  .invoice-body,
+  .invoice-footer {
+    page-break-inside: avoid;
+  }
+
+  /* fix grid compression */
+  .two-col {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .details-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* keep table alignment */
+  .table-header,
+  .service-row {
+    grid-template-columns: 1fr 100px 100px 110px 36px !important;
+  }
+
+  /* hide interactive stuff */
+  .toolbar,
+  .add-row-btn,
+  .remove-row,
+  .payment-tabs {
+    display: none !important;
+  }
+
+  /* force payment section visible */
+  .payment-fields {
+    display: block !important;
+  }
+
+  /* remove input weird borders */
+  input {
+    border: none !important;
+    background: transparent !important;
+
   /* ── TOOLBAR ── */
   .toolbar {
     max-width: 860px;
